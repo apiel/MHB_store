@@ -19,6 +19,7 @@ void Store::stop()
 void Store::start(int mode)
 {
     _mode = mode;
+    gpio_write(PIN_RELAY_POWER, RELAY_OFF);
     gpio_write(PIN_RELAY_MOTOR, mode);
     gpio_write(PIN_RELAY_POWER, RELAY_ON);
     printf("start store\n");

@@ -7,7 +7,7 @@
 
 #define UPNP_TIMEOUT 300 // 5min
 
-// #define WEMOS
+#define WEMOS
 #ifdef WEMOS
     #define PIN_BUTTON 0 // D3
     #define PIN_LED 2

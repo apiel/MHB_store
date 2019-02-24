@@ -14,6 +14,8 @@
 #include "httpd.h"
 #include "store.h"
 
+// make flash FLASH_SIZE=8 FLASH_MODE=dout
+
 static void  main_task(void *pvParameters)
 {
     wifi_wait_connection();
