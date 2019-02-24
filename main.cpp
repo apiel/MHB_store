@@ -10,7 +10,6 @@
 #include "wifi.h"
 #include "version.h"
 #include "led.h"
-#include "button.h"
 #include "httpd.h"
 #include "store.h"
 
@@ -35,9 +34,6 @@ extern "C" void user_init(void)
     printf("MyHomeBridge sonoff compile version: %s\n", VERSION);
 
     wifi_new_connection((char *)WIFI_SSID, (char *)WIFI_PASS);
-
-    Button button = Button(sdk_system_restart, [](){ store.toggle(); });
-    button.init();
 
     xTaskCreate(&main_task, "main_task", 1024, NULL, 9, NULL);
 }

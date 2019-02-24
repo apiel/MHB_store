@@ -6,34 +6,33 @@
 
 Store::Store()
 {
-    gpio_enable(PIN_RELAY_POWER, GPIO_OUTPUT);
-    gpio_enable(PIN_RELAY_MOTOR, GPIO_OUTPUT);
+    gpio_enable(PIN_OPEN, GPIO_OUTPUT);
+    gpio_enable(PIN_CLOSE, GPIO_OUTPUT);
+    gpio_enable(RELAY_OPEN, GPIO_OUTPUT);
 }
 
 void Store::stop()
 {
-    gpio_write(PIN_RELAY_POWER, RELAY_OFF);
+    gpio_write(OFF, PIN_OPEN);
+    gpio_write(OFF, PIN_CLOSE);
     printf("Stop store\n");
-}
-
-void Store::start(int mode)
-{
-    _mode = mode;
-    gpio_write(PIN_RELAY_POWER, RELAY_OFF);
-    gpio_write(PIN_RELAY_MOTOR, mode);
-    gpio_write(PIN_RELAY_POWER, RELAY_ON);
-    printf("start store\n");
 }
 
 void Store::open()
 {
-    start(RELAY_OPEN);
+    stop();
+    _mode = RELAY_OPEN;
+    gpio_write(RELAY_OPEN, PIN_RELAY);
+    gpio_write(ON, PIN_OPEN);
     printf("open store\n");
 }
 
 void Store::close()
 {
-    start(RELAY_CLOSE);
+    stop();
+    _mode = RELAY_CLOSE;
+    gpio_write(RELAY_CLOSE, PIN_RELAY);
+    gpio_write(ON, PIN_CLOSE);
     printf("close store\n");
 }
 

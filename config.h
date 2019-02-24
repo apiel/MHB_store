@@ -7,18 +7,10 @@
 
 #define UPNP_TIMEOUT 300 // 5min
 
-#define WEMOS
-#ifdef WEMOS
-    #define PIN_BUTTON 0 // D3
-    #define PIN_LED 2
-    #define PIN_RELAY_POWER 5 // D1
-    #define PIN_RELAY_MOTOR 14 // D5
-#else
-    #define PIN_BUTTON 0 // D3
-    #define PIN_LED 13
-    #define PIN_RELAY_POWER 12
-    #define PIN_RELAY_MOTOR 14
-#endif
+#define PIN_LED 2
+#define PIN_RELAY 5 // D1
+#define PIN_OPEN 14 // D5
+#define PIN_CLOSE 12 // D6
 
 // https://community.blynk.cc/uploads/default/original/2X/4/4f9e2245bf4f6698e10530b9060595c893bf49a2.png
 // D0 > GPIO 16
@@ -31,10 +23,10 @@
 // D7 > GPIO 13
 // D8 > GPIO 15
 
-#define RELAY_ON 1
-#define RELAY_OFF 0
-
 #define RELAY_OPEN 1
 #define RELAY_CLOSE 0
+
+#define ON 1
+#define OFF 0
 
 #endif
